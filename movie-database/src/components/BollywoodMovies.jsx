@@ -29,7 +29,7 @@ export default function BollywoodMovies({ movies, handleChange, addFaviorite, fa
         <div className="display-movie">
             <h2 className="heading">{input.length!==0 ? `Matching Movies` : `All Movies`}</h2>
             {movies.length!==0? movies.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} addFaviorite={addFaviorite} />
+                <MovieCard key={movie.id} movie={movie} addFaviorite={addFaviorite}/>
             )) : `No movies found`}
             
         </div>

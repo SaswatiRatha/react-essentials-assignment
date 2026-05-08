@@ -7,6 +7,7 @@ import lightIcon from "./assets/light-mode.png";
 
 export default function App() {
   const [input, setInput] = useState("");
+  const [movieList, setMovieList] = useState(movies);
   const [faviorite, setFaviorite] = useState([]);
   const [isDark, setIsDark] = useState(false);
 
@@ -14,7 +15,7 @@ export default function App() {
     setInput(event.target.value);
   }
 
-  const filteredMovies = movies.filter((movie) => {
+  const filteredMovies = movieList.filter((movie) => {
     const searchTerm = input.toLowerCase();
     return (
       movie.name.toLowerCase().includes(searchTerm) ||
@@ -25,7 +26,12 @@ export default function App() {
   });
 
   function addFaviorite(id) {
-    const selectedMovie = movies.find((movie) => movie.id === id);
+    setMovieList((prevMovies) =>
+      prevMovies.map((movie) =>
+        movie.id === id ? { ...movie, isFavorite: true } : movie,
+      ),
+    );
+    const selectedMovie = movieList.find((movie) => movie.id === id);
     setFaviorite((prev) => {
       const alreadyExists = prev.some((movie) => movie.id === id);
       if (alreadyExists) return prev;
@@ -33,11 +39,13 @@ export default function App() {
     });
   }
 
+  console.log(faviorite);
+
   function clearSearch() {
     setInput("");
   }
 
-  function resetMovies(){
+  function resetMovies() {
     setFaviorite([]);
     setInput("");
   }
@@ -59,17 +67,16 @@ export default function App() {
       </button>
       <div className="bollywood-movies">
         <BollywoodMovies
-        movies={filteredMovies}
-        searchMovie={searchMovieFnc}
-        handleChange={searchMovieFnc}
-        addFaviorite={addFaviorite}
-        favioriteMovies={faviorite}
-        clearSearch={clearSearch}
-        input={input}
-        resetMovies={resetMovies}
-      />
-    </div>
+          movies={filteredMovies}
+          searchMovie={searchMovieFnc}
+          handleChange={searchMovieFnc}
+          addFaviorite={addFaviorite}
+          favioriteMovies={faviorite}
+          clearSearch={clearSearch}
+          input={input}
+          resetMovies={resetMovies}
+        />
       </div>
-      
+    </div>
   );
 }

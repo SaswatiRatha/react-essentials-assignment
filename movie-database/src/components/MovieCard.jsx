@@ -25,8 +25,8 @@ export default function MovieCard({ movie, addFaviorite }) {
           <span className="other-themes">{movie.otherThemes.join(" · ")}</span>
         </div>
       </div>
-      <button className="faviorite-btn" onClick={() => addFaviorite(movie.id)}>
-        ♡ Faviorite
+      <button className={`faviorite-btn ${movie.isFavorite ? "fav" : ""}`} onClick={() => addFaviorite(movie.id)}>
+        ♡ {movie.isFavorite ? `Favorited` : `Favorite`}
       </button>
     </div>
   );
