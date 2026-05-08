@@ -37,11 +37,15 @@ export default function App() {
     setInput("");
   }
 
+  function resetMovies(){
+    setFaviorite([]);
+    setInput("");
+  }
+
   const toggleTheme = () => {
     setIsDark((prev) => !prev);
     document.body.classList.toggle("dark");
   };
-  //console.log(faviorite);
 
   return (
     <div className="app-wrapper">
@@ -62,6 +66,7 @@ export default function App() {
         favioriteMovies={faviorite}
         clearSearch={clearSearch}
         input={input}
+        resetMovies={resetMovies}
       />
     </div>
       </div>
