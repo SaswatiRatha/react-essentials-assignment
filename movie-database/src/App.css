@@ -1,0 +1,362 @@
+:root {
+  --bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --text: #111827;
+  --subtext: #6b7280;
+  --chip-bg: #e9f2fe;
+  --button-bg: #2563eb;
+  --button-text: #ffffff;
+  --border: #e5e7eb;
+}
+
+.dark {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --text: #f1f5f9;
+  --subtext: #94a3b8;
+  --chip-bg: #334155;
+  --button-bg: #3b82f6;
+  --button-text: #ffffff;
+  --border: #475569;
+}
+
+* {
+  box-sizing: border-box;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: sans-serif;
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+.bollywood-movies {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 8px 14px;
+  background-color: var(--chip-bg);
+  border: none;
+  border-radius: 20px;
+  color: var(--text);
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.toggleBtn:hover {
+  transform: translateY(-1px);
+}
+
+.toggleIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.dark .toggleIcon {
+  filter: invert(1);
+}
+
+
+h1 {
+  font-size: 50px;
+  margin: 0;
+  color: var(--text);
+}
+
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 42px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--subtext);
+}
+
+.search-input:focus {
+  border-color: var(--button-bg);
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-icon img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+.dark .search-icon img {
+  filter: invert(1);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: var(--subtext);
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  color: var(--text);
+}
+
+.reset-btn {
+  flex-shrink: 0;
+  padding: 12px 16px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  transform: translateY(-1px);
+}
+
+.movie-container {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.display-movie,
+.faviorite-movie {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heading {
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.movie-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--chip-bg);
+}
+
+.first-row {
+  flex: 1;
+}
+
+.movie-name {
+  margin: 0;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.details {
+  margin-left: 8px;
+  color: var(--subtext);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.second-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.ratings {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.high-rating{
+    background: #22c55e;
+    color: white;
+}
+
+.medium-rating{
+    background: #fbbf24;
+    color: #111;
+}
+
+.low-rating{
+    background: #ef4444;
+    color: white;
+}
+
+.main-theme {
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.other-themes {
+  color: var(--subtext);
+  font-size: 14px;
+}
+
+.faviorite-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  min-width: 120px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.faviorite-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.fav-movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.favCapsule {
+  background-color: var(--chip-bg);
+  color: var(--subtext);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+
+  h1 {
+    font-size: 42px;
+  }
+
+  .movie-container {
+    flex-direction: column;
+  }
+
+  .display-movie,
+  .faviorite-movie {
+    width: 100%;
+  }
+
+  .search-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .reset-btn {
+    width: 100%;
+  }
+
+  .movie-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .faviorite-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .bollywood-movies {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .movie-name {
+    font-size: 16px;
+  }
+
+  .details {
+    display: block;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .second-row {
+    gap: 8px;
+  }
+}
