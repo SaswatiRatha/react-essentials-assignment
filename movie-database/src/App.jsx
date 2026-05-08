@@ -48,6 +48,12 @@ export default function App() {
   function resetMovies() {
     setFaviorite([]);
     setInput("");
+    setMovieList((prevMovies) =>
+    prevMovies.map((movie) => ({
+      ...movie,
+      isFavorite: false
+    }))
+  );
   }
 
   const toggleTheme = () => {
